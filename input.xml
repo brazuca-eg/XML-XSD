@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Vouchers>
+    <ТouristVoucher>
+        <Type>Отдых</Type>
+        <Country>Турция</Country>
+        <NumberDaysNights>4 5</NumberDaysNights>
+        <Transport>Авиа</Transport>
+
+        <HotelCharacteristic>
+            <Stars>4</Stars>
+            <Food>AL</Food>
+            <Rooms>0</Rooms>
+        </HotelCharacteristic>
+
+        <Cost>1500</Cost>
+    </ТouristVoucher>
+
+</Vouchers>

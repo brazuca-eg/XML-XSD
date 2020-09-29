@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+  <xs:element name="Vouchers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ТouristVoucher"
+                     type="ТouristVoucher" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:complexType name="ТouristVoucher">
+      <xs:sequence>
+        <xs:element name="Type" type="xs:string" maxOccurs="1"/>
+        <xs:element name="Country" type="xs:string" maxOccurs="1"/>
+        <xs:element name="NumberDaysNights">
+          <xs:simpleType>
+            <xs:list itemType="Arr"></xs:list>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Transport" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        <xs:element name="HotelCharacteristic" type="HotelCharacteristic" minOccurs="0" maxOccurs="unbounded"></xs:element>
+        <xs:element name="Cost"  minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="0"></xs:minInclusive>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="HotelCharacteristic">
+      <xs:sequence>
+        <xs:element name="Stars" minOccurs="0" maxOccurs="1">
+          <xs:simpleType >
+            <xs:restriction base="xs:int">
+              <xs:enumeration value="1"></xs:enumeration>
+              <xs:enumeration value="2"></xs:enumeration>
+              <xs:enumeration value="3"></xs:enumeration>
+              <xs:enumeration value="4"></xs:enumeration>
+              <xs:enumeration value="5"></xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Food"  minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="AL"></xs:enumeration>
+            <xs:enumeration value="BB"></xs:enumeration>
+            <xs:enumeration value="HB"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType></xs:element>
+
+        <xs:element name="Rooms" minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="0"></xs:minInclusive>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+
+
+  <xs:simpleType name="Arr">
+    <xs:restriction base="xs:int">
+      <xs:minExclusive value="0"></xs:minExclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+
+</xs:schema>
